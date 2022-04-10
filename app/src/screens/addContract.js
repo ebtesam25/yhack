@@ -16,7 +16,7 @@ export default function AddContract({route}) {
 
     const navigation = useNavigation();
     
-    const {flight} = route.params;
+    const {flight,userid} = route.params;
 
     const [price, setprice] = useState('')
     const [hours, sethours] = useState('')
@@ -30,7 +30,7 @@ export default function AddContract({route}) {
         var raw = JSON.stringify({
         "action": "addcontract",
         "flight": flight,
-        "userid": "2",
+        "userid": userid,
         "delay": parseInt(hours),
         "amount": parseInt(price)
         });
@@ -92,7 +92,7 @@ export default function AddContract({route}) {
           <Button onPress={()=>{_addContract()}} text70 white background-blue10 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Calculate Premium"/>
         </View>
         <View marginT-10 center>
-          <Button onPress={()=>navigation.navigate('Contracts')} text70 white background-green40 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Purchase"/>
+          <Button onPress={()=>navigation.navigate('Contracts',{userid:userid})} text70 white background-green40 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Purchase"/>
         </View>
       </View>
     );

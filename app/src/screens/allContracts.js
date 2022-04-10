@@ -16,6 +16,8 @@ import { ScrollView } from 'react-native';
 export default function Contracts({route}) {
 
     const navigation = useNavigation();
+
+    const {userid} = route.params;
     
 
     const [contracts, setcontracts] = useState({"contracts": [{"id": "2", "flight": "NK1210", "amount": 150, "delay": 3, "premium": 7.5}, {"id": "3", "flight":
@@ -28,7 +30,7 @@ export default function Contracts({route}) {
 
         var raw = JSON.stringify({
         "action": "getallcontractsbyuser",
-        "userid": "2"
+        "userid": userid
         });
 
         var requestOptions = {

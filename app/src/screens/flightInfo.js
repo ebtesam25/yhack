@@ -16,7 +16,7 @@ export default function FlightInfo({route}) {
 
     const navigation = useNavigation();
     
-    const {flight} = route.params;
+    const {flight,userid} = route.params;
 
     const [delayed, setdelayed] = useState('');
     const [airlines, setairlines] = useState('');
@@ -116,7 +116,7 @@ export default function FlightInfo({route}) {
             </View>
        
         <View marginT-100 center>
-          <Button onPress={()=>navigation.navigate('AddContract',{flight:flight})} text70 white background-blue10 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Insure My Trip"/>
+          <Button onPress={()=>navigation.navigate('AddContract',{flight:flight,userid:userid})} text70 white background-blue10 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Insure My Trip"/>
         </View>
       </View>
     );

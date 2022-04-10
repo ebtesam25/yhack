@@ -5,11 +5,12 @@ import { TextInput } from 'react-native-paper';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 
-export default function Home() {
+export default function Home({route}) {
 
     const navigation = useNavigation();
 
     const [flight, setflight] = useState('');
+    const {userid} = route.params;
     return (
       <View flex>
             <View marginV-50>
@@ -32,7 +33,7 @@ export default function Home() {
             onChangeText={text => setflight(text)}
             />
         <View marginT-10 center>
-          <Button onPress={()=>navigation.navigate('FlightInfo',{flight:flight})} text70 white background-blue10 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Check"/>
+          <Button onPress={()=>navigation.navigate('FlightInfo',{flight:flight,userid:userid})} text70 white background-blue10 style={{width:'70%'}} borderRadius={5} labelStyle={{fontWeight:'bold'}} label="Check"/>
         </View>
       </View>
     );

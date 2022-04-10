@@ -12,6 +12,7 @@ export default function Register() {
     const [pass, setpass] = useState('');
     const [name, setname] = useState('');
     const [phone, setphone] = useState('');
+    const [userid, setuserid] = useState('');
 
     const _registerUser = () => {
         var myHeaders = new Headers();
@@ -34,7 +35,7 @@ export default function Register() {
 
         fetch("https://us-central1-aiot-fit-xlab.cloudfunctions.net/ponderers", requestOptions)
         .then(response => response.json())
-        .then(result => {console.log(result); navigation.navigate('Home')})
+        .then(result => {console.log(result); setuserid(result.userid); navigation.navigate('Home',{userid:result.userid})})
         .catch(error => console.log('error', error));
     }
     return (
